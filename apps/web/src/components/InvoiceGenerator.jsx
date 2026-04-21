@@ -122,7 +122,7 @@ const InvoiceGenerator = () => {
       </Button>
 
       {/* ── Envoyer sur WhatsApp ── */}
-      <Button
+      {/* <Button
         onClick={handleSendWhatsApp}
         className="text-white transition-all hover:scale-105"
         style={{ backgroundColor: '#25D366' }}
@@ -131,7 +131,7 @@ const InvoiceGenerator = () => {
       >
         <WhatsAppIcon />
         <span className="ml-2">Envoyer WhatsApp</span>
-      </Button>
+      </Button> */}
     </>
   );
 

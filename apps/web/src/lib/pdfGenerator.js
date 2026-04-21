@@ -196,43 +196,43 @@ export const generatePDF = (invoiceData) => {
 };
 
 // ─── Envoyer la facture sur WhatsApp ─────────────────────────────────────────
-export const sendInvoiceWhatsApp = (invoiceData, toast) => {
-  const rawPhone = invoiceData.client.phone?.trim();
+// export const sendInvoiceWhatsApp = (invoiceData, toast) => {
+//   const rawPhone = invoiceData.client.phone?.trim();
 
-  if (!rawPhone) {
-    toast({
-      title: "Numéro manquant",
-      description: "Veuillez renseigner le numéro de téléphone du client avant d'envoyer.",
-      variant: "destructive",
-    });
-    return;
-  }
+//   if (!rawPhone) {
+//     toast({
+//       title: "Numéro manquant",
+//       description: "Veuillez renseigner le numéro de téléphone du client avant d'envoyer.",
+//       variant: "destructive",
+//     });
+//     return;
+//   }
 
-  const doc = buildPDFDoc(invoiceData);
-  const fileName = `Facture_${invoiceData.invoiceNumber || 'brouillon'}.pdf`;
-  doc.save(fileName);
+//   const doc = buildPDFDoc(invoiceData);
+//   const fileName = `Facture_${invoiceData.invoiceNumber || 'brouillon'}.pdf`;
+//   doc.save(fileName);
 
-  const { total } = calculateInvoiceTotals(invoiceData);
-  const numero = rawPhone.replace(/[\s\-\(\)]/g, '');
+//   const { total } = calculateInvoiceTotals(invoiceData);
+//   const numero = rawPhone.replace(/[\s\-\(\)]/g, '');
 
-  const message =
-`Bonjour ${invoiceData.client.name || ''},
+//   const message =
+// `Bonjour ${invoiceData.client.name || ''},
 
-Veuillez trouver ci-joint votre facture N° *${invoiceData.invoiceNumber || 'N/A'}*.
+// Veuillez trouver ci-joint votre facture N° *${invoiceData.invoiceNumber || 'N/A'}*.
 
-📋 *Détails de la facture :*
-🗓️ Date : ${invoiceData.invoiceDate || '-'}
-📆 Échéance : ${invoiceData.dueDate || '-'}
-💰 *Total : ${total.toFixed(2)} FCFA*
+// 📋 *Détails de la facture :*
+// 🗓️ Date : ${invoiceData.invoiceDate || '-'}
+// 📆 Échéance : ${invoiceData.dueDate || '-'}
+// 💰 *Total : ${total.toFixed(2)} FCFA*
 
-Le PDF vient d'être téléchargé sur votre appareil.
-Vous pouvez maintenant l'envoyer ou l'imprimer.
+// Le PDF vient d'être téléchargé sur votre appareil.
+// Vous pouvez maintenant l'envoyer ou l'imprimer.
 
-Merci pour votre confiance ! 🙏
-— ${invoiceData.company.name || ''}`;
+// Merci pour votre confiance ! 🙏
+// — ${invoiceData.company.name || ''}`;
 
-  setTimeout(() => {
-    const url = `https://wa.me/${numero}?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank');
-  }, 500);
-};
+//   setTimeout(() => {
+//     const url = `https://wa.me/${numero}?text=${encodeURIComponent(message)}`;
+//     window.open(url, '_blank');
+//   }, 500);
+// };
