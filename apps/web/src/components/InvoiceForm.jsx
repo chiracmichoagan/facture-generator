@@ -385,7 +385,7 @@ const InvoiceForm = ({ invoiceData, setInvoiceData }) => {
           className="w-full bg-[#635bff] hover:bg-[#5248e6] text-white transition-all"
         >
           <Download className="w-4 h-4 mr-2" />
-          Download
+          Télécharger la facture
         </Button>
       </motion.div>
     </div>
