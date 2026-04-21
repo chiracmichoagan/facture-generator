@@ -133,7 +133,7 @@ const InvoiceForm = ({ invoiceData, setInvoiceData }) => {
         transition={{ delay: 0.1 }}
         className="space-y-6"
       >
-        <h2 className="text-lg font-semibold text-gray-900 border-b pb-3">Client details</h2>
+        <h2 className="text-lg font-semibold text-gray-900 border-b pb-3">Details du client</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
           <div>
             <Label htmlFor="client-name">Nom du client</Label>
